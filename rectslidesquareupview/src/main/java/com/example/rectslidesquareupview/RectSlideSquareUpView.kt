@@ -210,4 +210,12 @@ class RectSlideSquareUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : RectSlideSquareUpView {
+            var curr : RectSlideSquareUpView = RectSlideSquareUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
