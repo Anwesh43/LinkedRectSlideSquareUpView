@@ -185,4 +185,27 @@ class RectSlideSquareUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RectSlideSquareUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val rssu : RectSlideSquareUp = RectSlideSquareUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rssu.draw(canvas, paint)
+            animator.animate {
+                rssu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rssu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
