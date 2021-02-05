@@ -23,7 +23,7 @@ val delay : Long = 20
 val parts : Int = 2
 val scGap : Float = 0.02f / parts
 val squareSizeFactor : Float = 5.9f
-val rectSizeFactor : Float = 6.9f
+val rectSizeFactor : Float = 2.4f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -214,8 +214,8 @@ class RectSlideSquareUpView(ctx : Context) : View(ctx) {
     companion object {
         fun create(activity : Activity) : RectSlideSquareUpView {
             var curr : RectSlideSquareUpView = RectSlideSquareUpView(activity)
-            activity.setContentView(view)
-            return view
+            activity.setContentView(curr)
+            return curr
         }
     }
 }
